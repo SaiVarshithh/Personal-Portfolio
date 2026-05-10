@@ -26,7 +26,7 @@ export function InfrastructureSection() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          className="relative min-h-[430px] overflow-hidden rounded-lg border border-white/10 bg-slate-950/68 p-6 backdrop-blur-xl"
+          className="relative min-h-[280px] overflow-hidden rounded-lg border border-white/10 bg-slate-950/68 p-4 backdrop-blur-sm md:min-h-[430px] md:p-6 md:backdrop-blur-xl"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_45%_40%,rgba(102,228,255,0.16),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(129,140,248,0.13),transparent_35%)]" />
           <div className="relative grid h-full content-center gap-6">
