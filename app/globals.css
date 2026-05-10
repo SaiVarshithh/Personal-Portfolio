@@ -56,7 +56,13 @@ a {
   z-index: 1;
   margin-inline: auto;
   max-width: 1180px;
-  padding: 6rem 1.25rem;
+  padding: 4rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-shell {
+    padding: 5rem 1.25rem;
+  }
 }
 
 @media (min-width: 768px) {

@@ -26,7 +26,7 @@ export function ContactSection() {
         description="The fastest path is email or LinkedIn. GitHub is available for deeper project context and repository review."
       />
 
-      <div className="grid gap-6 lg:grid-cols-[0.86fr_1.14fr]">
+      <div className="grid gap-6 grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}

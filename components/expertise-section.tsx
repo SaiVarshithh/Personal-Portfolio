@@ -15,7 +15,7 @@ export function ExpertiseSection() {
         description="The stack is organized around production systems: request surfaces, orchestration, compute, storage, observability, and intelligent automation."
       />
 
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
         {skillGroups.map(({ title, icon: Icon, skills }, index) => (
           <motion.div
             key={title}
@@ -24,7 +24,7 @@ export function ExpertiseSection() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ delay: index * 0.05, duration: 0.48 }}
           >
-            <Card className="group h-full p-5 transition duration-300 hover:-translate-y-1 hover:border-cyan-200/24 hover:bg-white/[0.06]">
+            <Card className="group h-full p-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-200/24 hover:bg-white/[0.06] sm:p-5">
               <div className="flex items-center gap-3">
                 <div className="grid h-11 w-11 place-items-center rounded-lg border border-cyan-200/18 bg-cyan-300/8 text-cyan-100">
                   <Icon className="h-5 w-5" />

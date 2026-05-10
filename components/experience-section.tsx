@@ -15,7 +15,7 @@ export function ExperienceSection() {
       />
 
       <div className="relative mx-auto max-w-5xl">
-        <div className="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-cyan-300/0 via-cyan-300/35 to-indigo-300/0 md:left-1/2" />
+        <div className="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-cyan-300/0 via-cyan-300/35 to-indigo-300/0 sm:left-4 md:left-1/2" />
 
         <div className="grid gap-8">
           {experiences.map((experience, index) => {
@@ -32,7 +32,7 @@ export function ExperienceSection() {
                 className={`relative grid gap-4 md:grid-cols-2 ${alignRight ? "" : "md:[&>div]:col-start-2"}`}
               >
                 <div
-                  className={`ml-12 rounded-lg border border-white/10 bg-white/[0.045] p-5 backdrop-blur-xl md:ml-0 ${
+                  className={`ml-12 rounded-lg border border-white/10 bg-white/[0.045] p-4 backdrop-blur-sm sm:p-5 sm:backdrop-blur-xl md:ml-0 ${
                     alignRight ? "md:mr-8" : "md:ml-8"
                   }`}
                 >

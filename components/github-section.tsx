@@ -57,12 +57,12 @@ export function GithubSection() {
         description="The section reads live public GitHub repository data when available and keeps a resilient fallback for deploy previews and offline development."
       />
 
-      <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="grid gap-6 grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          className="rounded-lg border border-white/10 bg-slate-950/76 p-5 font-mono text-sm text-slate-300 shadow-[0_24px_80px_rgba(0,0,0,0.28)]"
+          className="rounded-lg border border-white/10 bg-slate-950/76 p-3 font-mono text-xs text-slate-300 shadow-[0_24px_80px_rgba(0,0,0,0.28)] sm:p-5 sm:text-sm"
         >
           <div className="mb-5 flex gap-2">
             <span className="h-3 w-3 rounded-full bg-red-400/80" />

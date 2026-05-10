@@ -21,12 +21,12 @@ export function InfrastructureSection() {
         description="The portfolio is intentionally infrastructure-forward because Sai's work touches orchestration, analytical storage, Kubernetes runtime behavior, and operational tooling."
       />
 
-      <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
+      <div className="grid gap-6 grid-cols-1 lg:grid-cols-[1.08fr_0.92fr]">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          className="relative min-h-[280px] overflow-hidden rounded-lg border border-white/10 bg-slate-950/68 p-4 backdrop-blur-sm md:min-h-[430px] md:p-6 md:backdrop-blur-xl"
+          className="relative min-h-[250px] overflow-hidden rounded-lg border border-white/10 bg-slate-950/68 p-3 backdrop-blur-sm sm:min-h-[320px] sm:p-4 md:min-h-[430px] md:p-6 md:backdrop-blur-xl"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_45%_40%,rgba(102,228,255,0.16),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(129,140,248,0.13),transparent_35%)]" />
           <div className="relative grid h-full content-center gap-6">
@@ -59,7 +59,7 @@ export function InfrastructureSection() {
           </div>
         </motion.div>
 
-        <div className="grid gap-3">
+        <div className="grid gap-2 sm:gap-3">
           {infrastructure.map((item, index) => (
             <motion.div
               key={item}
@@ -67,7 +67,7 @@ export function InfrastructureSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ delay: index * 0.035, duration: 0.35 }}
-              className="rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-medium text-slate-200 transition hover:border-cyan-200/22 hover:bg-cyan-300/[0.055]"
+              className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-medium text-slate-200 transition hover:border-cyan-200/22 hover:bg-cyan-300/[0.055] sm:px-4 sm:py-3 sm:text-sm"
             >
               {item}
             </motion.div>

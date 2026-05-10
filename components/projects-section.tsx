@@ -16,7 +16,7 @@ export function ProjectsSection() {
         description="Each project is framed around the system shape, the engineering problem solved, and the production ideas behind it."
       />
 
-      <div className="grid gap-5 lg:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-1 lg:grid-cols-2">
         {projects.map((project, index) => {
           const Icon = project.icon;
 
@@ -28,7 +28,7 @@ export function ProjectsSection() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ delay: index * 0.05, duration: 0.5 }}
             >
-              <Card className="group relative h-full overflow-hidden p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-200/25">
+              <Card className="group relative h-full overflow-hidden p-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-200/25 sm:p-6">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(102,228,255,0.12),transparent_34%),radial-gradient(circle_at_100%_70%,rgba(129,140,248,0.11),transparent_35%)] opacity-80" />
                 <div className="relative">
                   <div className="flex items-start justify-between gap-5">
@@ -41,12 +41,12 @@ export function ProjectsSection() {
                     </div>
                   </div>
 
-                  <div className="my-6 rounded-lg border border-white/10 bg-slate-950/68 p-4">
-                    <div className="mb-4 flex items-center gap-2 text-xs text-slate-400">
+                  <div className="my-4 rounded-lg border border-white/10 bg-slate-950/68 p-3 sm:my-6 sm:p-4">
+                    <div className="mb-3 flex items-center gap-2 text-xs text-slate-400">
                       <span className="h-2 w-2 rounded-full bg-cyan-300" />
                       architecture flow
                     </div>
-                    <div className="grid grid-cols-3 items-center gap-3 text-center text-xs text-slate-300">
+                    <div className="grid grid-cols-3 items-center gap-2 text-center text-[0.7rem] text-slate-300 sm:gap-3 sm:text-xs">
                       <div className="rounded-lg border border-cyan-200/14 bg-cyan-300/[0.05] px-2 py-3">
                         API surface
                       </div>
