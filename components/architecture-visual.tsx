@@ -14,12 +14,12 @@ const desktopNodes = [
 ];
 
 const mobileNodes = [
-  { label: "API", icon: Server, x: "8%", y: "15%", tone: "cyan" },
-  { label: "Agents", icon: Bot, x: "50%", y: "8%", tone: "indigo" },
-  { label: "Spark", icon: Activity, x: "50%", y: "38%", tone: "blue" },
-  { label: "Iceberg", icon: Database, x: "92%", y: "15%", tone: "cyan" },
-  { label: "Airflow", icon: GitBranch, x: "92%", y: "38%", tone: "indigo" },
-  { label: "K8s", icon: Cloud, x: "50%", y: "25%", tone: "cyan" },
+  { label: "API", icon: Server, x: "5%", y: "8%", tone: "cyan" },
+  { label: "Agents", icon: Bot, x: "50%", y: "2%", tone: "indigo" },
+  { label: "Iceberg", icon: Database, x: "88%", y: "8%", tone: "cyan" },
+  { label: "K8s", icon: Cloud, x: "50%", y: "32%", tone: "cyan" },
+  { label: "Spark", icon: Activity, x: "28%", y: "54%", tone: "blue" },
+  { label: "Airflow", icon: GitBranch, x: "72%", y: "54%", tone: "indigo" },
 ];
 
 export function ArchitectureVisual() {
@@ -90,7 +90,7 @@ export function ArchitectureVisual() {
             duration: prefersReducedMotion ? 0.001 : 0.45,
           }}
           className="absolute"
-          style={{ left: x, top: y }}
+          style={{ left: x, top: y, transform: "translate(-50%, -50%)" }}
         >
           <div
             className={`grid h-16 w-16 place-items-center rounded-xl border bg-slate-950/80 backdrop-blur-sm md:h-20 md:w-20 md:rounded-2xl md:backdrop-blur-xl ${
