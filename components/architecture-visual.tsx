@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 import { Activity, Bot, Cloud, Database, GitBranch, Server } from "lucide-react";
 
@@ -14,26 +14,26 @@ const desktopNodes = [
 ];
 
 const mobileNodes = [
-  { label: "API", icon: Server, x: "5%", y: "8%", tone: "cyan" },
-  { label: "Agents", icon: Bot, x: "50%", y: "2%", tone: "indigo" },
-  { label: "Iceberg", icon: Database, x: "88%", y: "8%", tone: "cyan" },
-  { label: "K8s", icon: Cloud, x: "50%", y: "32%", tone: "cyan" },
-  { label: "Spark", icon: Activity, x: "28%", y: "54%", tone: "blue" },
-  { label: "Airflow", icon: GitBranch, x: "72%", y: "54%", tone: "indigo" },
+  { label: "Spark", icon: Activity, x: "28%", y: "28%", tone: "blue" },
+  { label: "Airflow", icon: GitBranch, x: "72%", y: "28%", tone: "indigo" },
 ];
 
-export function ArchitectureVisual() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+function useMediaQuery(query: string) {
+  return useSyncExternalStore(
+    (onStoreChange) => {
+      if (typeof window === "undefined") return () => {};
+      const mediaQuery = window.matchMedia(query);
+      mediaQuery.addEventListener("change", onStoreChange);
+      return () => mediaQuery.removeEventListener("change", onStoreChange);
+    },
+    () => (typeof window === "undefined" ? false : window.matchMedia(query).matches),
+    () => false,
+  );
+}
 
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    setPrefersReducedMotion(prefersReduced);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+export function ArchitectureVisual() {
+  const isMobile = useMediaQuery("(max-width: 767px)");
+  const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
   const nodes = isMobile ? mobileNodes : desktopNodes;
   const animationDuration = prefersReducedMotion ? 0.001 : 1.6;
@@ -122,10 +122,10 @@ export function ArchitectureVisual() {
         <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/8 md:mt-3">
           <motion.div
             className="h-full rounded-full bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300"
-            animate={prefersReducedMotion ? {} : { x: ["-40%", "120%"] }}
+            animate={prefersReducedMotion || isMobile ? {} : { x: ["-40%", "120%"] }}
             transition={{
               duration: progressDuration,
-              repeat: prefersReducedMotion ? 0 : Infinity,
+              repeat: prefersReducedMotion || isMobile ? 0 : Infinity,
               ease: "easeInOut",
             }}
             style={{ width: "45%" }}

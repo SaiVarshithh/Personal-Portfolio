@@ -1,23 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BriefcaseBusiness, Code2, Mail, Phone, Send } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { BriefcaseBusiness, Code2, Mail, Phone } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
-import { Button } from "@/components/ui/button";
 import { profile } from "@/lib/data";
 
 export function ContactSection() {
-  const [subject, setSubject] = useState("Portfolio inquiry");
-  const [message, setMessage] = useState("");
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const body = encodeURIComponent(message || "Hi Sai, I saw your portfolio and would like to connect.");
-    const mailSubject = encodeURIComponent(subject || "Portfolio inquiry");
-    window.location.href = `mailto:${profile.email}?subject=${mailSubject}&body=${body}`;
-  };
-
   return (
     <section id="contact" className="section-shell pb-10">
       <SectionHeading
@@ -26,7 +14,7 @@ export function ContactSection() {
         description="The fastest path is email or LinkedIn. GitHub is available for deeper project context and repository review."
       />
 
-      <div className="grid gap-6 grid-cols-1 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,41 +41,6 @@ export function ContactSection() {
             </a>
           </div>
         </motion.div>
-
-        <motion.form
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          onSubmit={handleSubmit}
-          className="edge-glow rounded-lg border border-white/10 bg-slate-950/72 p-6 backdrop-blur-xl"
-        >
-          <div className="grid gap-5">
-            <label className="grid gap-2">
-              <span className="text-sm font-medium text-slate-200">Subject</span>
-              <input
-                value={subject}
-                onChange={(event) => setSubject(event.target.value)}
-                className="min-h-12 rounded-lg border border-white/10 bg-white/[0.055] px-4 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-200/45 focus:bg-white/[0.075]"
-                placeholder="Opportunity, collaboration, or project discussion"
-                suppressHydrationWarning
-              />
-            </label>
-            <label className="grid gap-2">
-              <span className="text-sm font-medium text-slate-200">Message</span>
-              <textarea
-                value={message}
-                onChange={(event) => setMessage(event.target.value)}
-                className="min-h-40 resize-y rounded-lg border border-white/10 bg-white/[0.055] px-4 py-3 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-200/45 focus:bg-white/[0.075]"
-                placeholder="Write a short note..."
-                suppressHydrationWarning
-              />
-            </label>
-            <Button type="submit" className="w-full sm:w-fit">
-              <Send className="h-4 w-4" />
-              Send Email
-            </Button>
-          </div>
-        </motion.form>
       </div>
     </section>
   );
