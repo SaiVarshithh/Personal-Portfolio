@@ -28,14 +28,14 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="section-shell flex min-h-screen items-center pt-32 md:pt-36"
+      className="section-shell flex items-start pb-10 pt-28 md:min-h-screen md:items-center md:pb-20 md:pt-36"
     >
-      <div className="grid w-full items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
+      <div className="grid w-full items-center gap-8 md:gap-12 lg:grid-cols-[1.02fr_0.98fr]">
         <motion.div
           initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="max-w-3xl"
+          className="mx-auto max-w-3xl text-center md:mx-0 md:text-left"
         >
           <Badge className="mb-5 gap-2 border-cyan-200/24 bg-cyan-300/8">
             <Rocket className="h-3.5 w-3.5" />
@@ -57,7 +57,7 @@ export function HeroSection() {
             data infrastructure, and distributed backend architecture.
           </p>
 
-          <div className="mt-6 flex min-h-10 flex-wrap items-center gap-3">
+          <div className="mt-6 flex min-h-10 flex-wrap items-center justify-center gap-3 md:justify-start">
             <span className="text-sm font-medium text-slate-400">Currently focused on</span>
             <motion.span
               key={heroHighlights[activeHighlight]}
@@ -70,7 +70,7 @@ export function HeroSection() {
             </motion.span>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
             <Button asChild href="#projects">
               View Projects
               <ArrowDown className="h-4 w-4 transition group-hover:translate-y-0.5" />
@@ -93,7 +93,7 @@ export function HeroSection() {
             </Button>
           </div>
 
-          <div className="mt-10 grid max-w-xl grid-cols-3 gap-3">
+          <div className="mx-auto mt-8 grid max-w-xl grid-cols-3 gap-3 md:mx-0 md:mt-10">
             {stats.map((stat) => (
               <div key={stat.label} className="rounded-lg border border-white/10 bg-white/[0.045] p-4">
                 <div className="text-2xl font-semibold text-white">{stat.value}</div>
@@ -107,7 +107,7 @@ export function HeroSection() {
           initial={{ opacity: 0, x: 28 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.1, duration: 0.75, ease: "easeOut" }}
-          className="relative"
+          className="relative hidden md:block"
         >
           <ArchitectureVisual />
         </motion.div>
